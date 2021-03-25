@@ -19,10 +19,16 @@ export const postJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
 }
 
-export const login = (req, res) =>
- res.render("login", { pageTitle: "Login" });
-export const logout = (req, res) =>
- res.render("logout", { pageTitle: "Logout" });
+export const getLogin = (req, res) =>
+  res.render("login", { pageTitle: "Login" });
+export const postLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
+export const logout = (req, res) => {
+  // to po : process logout
+  res.redirect(routes.home);
+}
 
 export const userDetail = (req, res) =>
  res.render("userDetail", { pageTitle: "User Detail" });
