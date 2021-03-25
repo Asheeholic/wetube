@@ -12,6 +12,10 @@ import routes from "./routes";
 const app = express(); 
 
 app.use(helmet());
+app.use(function(req, res, next) {
+  res.setHeader("Content-Security-Policy", "script-src 'self' https://archive.org");
+  return next();
+  }); // helmet 업그레이드로 인한 비디오 정책 허용 미들웨어
 app.set("view engine", "pug");
 app.use(cookieParser());
 app.use(bodyParser.json());
